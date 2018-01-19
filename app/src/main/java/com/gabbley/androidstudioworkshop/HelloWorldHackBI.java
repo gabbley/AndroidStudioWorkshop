@@ -11,24 +11,40 @@ import com.gabbley.androidstudioworkshop.R;
 
 public class HelloWorldHackBI extends AppCompatActivity {
 
+    /*
+    * Components declared as global fields
+    * Can be accessed anywhere in app
+    * */
     Button btnChange;
     TextView txtMain;
     EditText txtEnter;
 
+    /*
+    * Runs when app is initialized
+    * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello_world_hack_bi);
-        initialSetup();
+        initialSetup(); //method to initialize all components needed at start of app
     }
 
+    /*
+    * Declare/Initialize/Set anything you want the moment the app opens
+    * */
     public void initialSetup(){
-        btnChange = (Button) findViewById(R.id.btnChangeText);
-        txtMain = (TextView) findViewById(R.id.txtMainText);
-        txtEnter = (EditText) findViewById(R.id.txtEditText);
+        btnChange = findViewById(R.id.btnChangeText); //ID that you chose in design
+        txtMain = findViewById(R.id.txtMainText);
+        txtEnter = findViewById(R.id.txtEditText);
     }
 
-    public void changeText(View view){
+    /*
+    * Changes the text of the TextView (txtMain) to text entered in EditText (txtEnter)
+    * Runs when btnChange is clicked
+    *
+    * Choose the onClick in design
+    * */
+    public void changeText(View view){ //View parameter connects method to design
         if (txtEnter.getText().length() > 0){
             txtMain.setText(txtEnter.getText());
         }
